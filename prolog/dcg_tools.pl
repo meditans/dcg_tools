@@ -3,6 +3,9 @@
              any//1,
              nl//0,
              space//0,
+             space//1,
+             spaces//0,
+             sp//0,
 
              optional//1,
              optional//2,
@@ -45,9 +48,12 @@ constant(A) --> seq(A).
 seq([])     --> [].
 seq([E|Es]) --> [E], seq(Es).
 
-any(X) --> [X].
-nl     --> `\n`.
-space  --> ` `.
+any(X)    --> [X].
+nl        --> `\n`.
+space     --> ` `.
+space(_)  --> ` `.
+spaces    --> list(space).
+sp        --> list(space).
 
 digitCode(C)  --> [C], {code_type(C, digit)}.
 symbolCode(C) --> [C], {code_type(C, punct)}.
