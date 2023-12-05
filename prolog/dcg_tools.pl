@@ -11,6 +11,7 @@
              optional//2,
              constant//1,
              '|'//3,
+             (//)//2,
 
              uppercase//1,
              lowercase//1,
@@ -42,6 +43,8 @@ optional(Dcg)      --> optional(Dcg, _).
 optional(Dcg, Res) --> call(Dcg, Res) | {Res = ``}.
 constant(A) --> seq(A).
 '|'(Dcg1, Dcg2, X) --> call(Dcg1, X) | call(Dcg2, X).
+
+//(P1,P2,S1,S2) :- call_dcg(P1,S1,S2), call_dcg(P2,S1,S2).
 
 
 
